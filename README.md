@@ -2,7 +2,7 @@
 # Recipedia 
 
 by [Denise Cheung](https://github.com/denisecheung3), [Emma Hobday](https://github.com/emmahobday)
-The project is deployed [here] (https://recipedia1.herokuapp.com/#/) on Heroku, please do feel free to check it out.
+The project is deployed [here](https://recipedia1.herokuapp.com/#/) on Heroku, please do feel free to check it out.
 
 ## Overview 
 Recipedia, a full stack application, is my fourth and final project during the software engineering immersive course at General Assembly. It was completed over the course of one week in **pairs**.
