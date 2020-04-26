@@ -1,7 +1,8 @@
 ### ![GA](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
 # Recipedia 
 
-by [Denise Cheung](https://github.com/denisecheung3), [Emma Hobday](https://github.com/emmahobday)
+by [Denise Cheung](https://github.com/denisecheung3), [Emma Hobday](https://github.com/emmahobday).
+
 The project is deployed [here](https://recipedia1.herokuapp.com/#/) on Heroku, please do feel free to check it out.
 
 ## Overview 
