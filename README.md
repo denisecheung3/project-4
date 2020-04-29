@@ -106,10 +106,10 @@ Recipedia, a full stack application, is my fourth and final project during the s
 - I learnt a lot about the importance of models and how they directly impact the functionality you can achieve. This is my journey: 
     - Once I had my backend set up for this feature, I turned my attention to the frontend. I had no problem adding an ingredient to the shopping list but had to make a decision when it came to viewing my shopping list.
     - Imagine the scenario. The user has two ingredients in their shopping list for the Chicken Crunch recipe. He went to the shop, bought the chicken and checked the chicken off the list. However, the shop run out of butter, so the shopping list page will look like this: 
-    - <img src="https://i.imgur.com/T8evZpG.png" width="250"/>
+    - <img src="https://i.imgur.com/T8evZpG.png" width="350"/>
     
     - If the user refreshes, the page will look like this:
-         - <img src="https://i.imgur.com/heyQlDR.png" width="250"/>
+         - <img src="https://i.imgur.com/heyQlDR.png" width="350"/>
          - the strikethrough will disappear and it's as if the user still needs to buy chicken, which is not the case. (Note that these screenshots were taken when the shopping list page was only displaying ingredients and I have not yet written the code to make a request to the backend when user crosses an ingredient out) 
     - So I have a decision to make between two options: 
          - option 1: 
