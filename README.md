@@ -1,7 +1,7 @@
 ### ![GA](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
 # Recipedia 
 
-by [Denise Cheung](https://github.com/denisecheung3), [Emma Hobday](https://github.com/emmahobday).
+by [Denise Cheung](https://github.com/denisecheung3) & [Emma Hobday](https://github.com/emmahobday).
 
 The project is deployed [here](https://recipedia1.herokuapp.com/#/) on Heroku, please do feel free to check it out.
 
@@ -43,5 +43,61 @@ Recipedia, a full stack application, is my fourth and final project during the s
 * **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models
 * **Have a visually impressive design** to kick your portfolio up a notch and have something to wow future clients & employers.
 * **Be deployed online** so it’s publicly accessible.
+
+## Technologies used 
+- JavaScript (ES6)
+- React.js
+- Python 
+- Django 
+- PostgreSQL 
+- SCSS
+- HTML
+- Webpack 
+- React-scheduler
+- Moment
+- Heroku 
+- Git and GitHub
+- Bulma
+- Google Fonts
+
+## Approach
+
+### Single Recipe Page 
+#### Rating a Recipe 
+- Frontend: Viewing the rating button
+     - Minor logic on frontend so that
+        - not logged in users will not see the rating button (rating feature not available) 
+        - logged in users who have not rated the specific recipe will be able to rate 
+        - logged in users who have rated the recipe will be able to view their rating 
+
+- Frontend & Backend: When single recipe component mounts, makes a call to fetch single recipe details 
+     - the fetch will attach token if user is logged in 
+     - data returned includes a 'rating' field 
+         - <img src="https://i.imgur.com/PA3lnkB.png" width="350"/>
+         - Recall that there is no 'rating' field on the recipe field, so to have the data returned from the fetch to include a 'rating' fields required making some changes to the DetailedRecipeSerializer. 
+              ```js
+              class DetailedRecipeSerializer(serializers.ModelSerializer):
+                    rating = serializers.SerializerMethodField()
+
+                    class Meta:
+                        model = Recipe
+                        fields = (........, 'rating')
+
+                    def get_rating(self, obj):
+                        user = self.context["request"].user
+                        print(user.is_authenticated)
+                        if user.is_authenticated:  
+                            user_rating = obj.ratings.filter(user=user).first()
+                            print(user_rating)
+                            if user_rating:  # if user logged in but never rated, rating field will be null
+                                return user_rating.rating_num
+                        return None  # if user isn't logged in rating field will be null
+              
+              ```
+                 -  here I used Django SerliazerMethodField and some logic to check if the user has logged in and if yes, has rated the recipe to get the rating
+
+         - If the user is not logged in, or the user has not rated that specific recipe, rating will be null. If the user is logged in and has rated the recipe, the rating returned will be a number between 1 to 5, which is the rating the user gave.
+
+
 
 
