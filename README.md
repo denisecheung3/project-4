@@ -14,6 +14,7 @@ Recipedia, a full stack application, is my fourth and final project during the s
 1. [Brief](#Brief)
 2. [Technologies Used](#Technologies-Used)
 3. [Approach](#Approach)
+    - [Populating our Database] 
     - [Homepage](#Homepage)
         - [Recipe-of-the-day]
         - [Fridge recipe search feature](#Fridge-recipe-search-feature)
@@ -61,6 +62,7 @@ Recipedia, a full stack application, is my fourth and final project during the s
 - Google Fonts
 
 ## Approach
+### Populating our database 
 
 ### Single Recipe Page 
 #### Rating a Recipe 
@@ -99,6 +101,23 @@ Recipedia, a full stack application, is my fourth and final project during the s
               - If the user is not logged in, or the user has not rated that specific recipe, rating will be null. If the user is logged in and has rated the recipe, the rating returned will be a number between 1 to 5, which is the rating the user gave.
 
 
-
+#### Adding ingredient to shopping list 
+- The models for this feature 
+- I learnt a lot about the importance of models and how they directly impact the functionality you can achieve. This is my journey: 
+    - Once I had my backend set up for this feature, I turned my attention to the frontend. I had no problem adding an ingredient to the shopping list but had to make a decision when it came to viewing my shopping list.
+    - Imagine the scenario. The user has two ingredients in their shopping list for the Chicken Crunch recipe. He went to the shop, bought the chicken and checked the chicken off the list. However, the shop run out of butter, so the shopping list page will look like this: 
+    - <img src="https://i.imgur.com/T8evZpG.png" width="250"/>
+    - If the user refreshes, the page will look like this:
+         - <img src="https://i.imgur.com/heyQlDR.png" width="250"/>
+         - the strikethrough will disappear and it's as if the user still needs to buy chicken, which is not the case. (Note that these screenshots were taken when the shopping list page was only displaying ingredients and I have not yet written the code to make a request to the backend when user crosses an ingredient out) 
+    - So I have a decision to make between two options: 
+         - option 1: 
+             - if the user refreshes the page, chicken will remain crossed out, but butter will not. This will remind the user that he has already bought chicken, but still need to buy butter.
+         - option 2: 
+            - if the user refreshes the page, the only thing left on will be butter, to remind the user that they onlt have butter left to buy to be able to cook the Chicken Crunch recipe. 
+    - Thinking about my options:
+        - if I went with option 1, I would need to store the information about whether an ingredient is purchased. This is so that when the shopping list page is rendered, it knows which ingredient to render with a strikethrough. In this case, I would need to redo my models to have a new model 'ingredient_to_buy' that is related to 'recipe_to_buy_for'. The ingredient_to_buy model will likely have the fields: ingredient (as a string), ispurchased (boolean) and foreign key to recipe_to_buy_for.
+        - If i went with option 2, my existing set up and models could support this. This is the option I decided on. 
+    - This experience was invaluable. I am glad that my models were able to support my desired functionality. I was able to see first hand the importance of models and how I should always spend time to plan my models.
 
 
