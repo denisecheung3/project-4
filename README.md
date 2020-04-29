@@ -94,9 +94,10 @@ Recipedia, a full stack application, is my fourth and final project during the s
                         return None  # if user isn't logged in rating field will be null
               
               ```
-                 -  here I used Django SerliazerMethodField and some logic to check if the user has logged in and if yes, has rated the recipe to get the rating
+              -  here I used Django SerliazerMethodField and some logic to check if the user has logged in and if yes, has rated the recipe to get the rating
 
-         - If the user is not logged in, or the user has not rated that specific recipe, rating will be null. If the user is logged in and has rated the recipe, the rating returned will be a number between 1 to 5, which is the rating the user gave.
+              - If the user is not logged in, or the user has not rated that specific recipe, rating will be null. If the user is logged in and has rated the recipe, the rating returned will be a number between 1 to 5, which is the rating the user gave.
+
 
 
 
